@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 外圆 -->
+  <circle cx="100" cy="100" r="90" stroke="#0071e3" stroke-width="2" fill="white"/>
+  
+  <!-- 内部彩色渐变 -->
+  <circle cx="100" cy="100" r="70" fill="url(#colorGradient)"/>
+  
+  <!-- 中间魔棒图标 -->
+  <path d="M120 70L130 80L80 130L70 120L120 70ZM80 130L60 140L70 120L80 130Z" fill="white"/>
+  <circle cx="125" cy="75" r="10" fill="white"/>
+  
+  <!-- 定义渐变 -->
+  <defs>
+    <linearGradient id="colorGradient" x1="30" y1="30" x2="170" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0071e3"/>
+      <stop offset="0.5" stop-color="#5ac8fa"/>
+      <stop offset="1" stop-color="#34c759"/>
+    </linearGradient>
+  </defs>
+</svg> 

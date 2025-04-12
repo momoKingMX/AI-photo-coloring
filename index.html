@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI照片上色工具 - 将黑白照片转换为彩色照片">
+    <meta name="keywords" content="AI上色,照片上色,黑白照片,彩色照片,AI工具">
+    <title>AI照片上色工具</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 苹果风格字体 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap">
+    <!-- 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="AI Colorize" id="logo-img">
+                <h1 id="site-title">AI照片上色工具</h1>
+            </div>
+            <div class="header-actions">
+                <!-- 语言选择器 -->
+                <div class="language-selector">
+                    <button class="lang-btn">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang">中文</span>
+                    </button>
+                    <div class="lang-dropdown">
+                        <div class="lang-option" data-lang="zh">中文</div>
+                        <div class="lang-option" data-lang="en">English</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main>
+        <div class="container">
+            <!-- 介绍文字 -->
+            <section class="intro">
+                <h2 id="main-heading">为黑白照片注入生命的色彩</h2>
+                <p id="sub-heading">只需上传您的黑白照片，我们的AI技术将为其添加自然生动的色彩</p>
+            </section>
+
+            <!-- 上传区域 -->
+            <section class="upload-section" id="upload-area">
+                <div class="upload-container" id="drop-area">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3 id="upload-title">上传照片</h3>
+                    <p id="upload-desc">点击上传或拖放照片到此处</p>
+                    <p class="file-types" id="file-types">支持 JPG, PNG, WEBP 格式</p>
+                    <input type="file" id="file-input" accept="image/jpeg, image/png, image/webp" multiple hidden>
+                    <button class="primary-btn" id="upload-btn">选择照片</button>
+                </div>
+            </section>
+
+            <!-- 处理中状态 -->
+            <section class="processing-section hidden" id="processing-area">
+                <div class="processing-container">
+                    <div class="spinner"></div>
+                    <h3 id="processing-title">正在处理照片...</h3>
+                    <p id="processing-desc">请稍候，我们的AI正在为您的照片上色</p>
+                </div>
+            </section>
+
+            <!-- 结果展示区 -->
+            <section class="results-section hidden" id="results-area">
+                <h3 id="results-title">上色完成</h3>
+                <div class="results-grid" id="results-grid">
+                    <!-- 结果将通过JS动态添加 -->
+                </div>
+                <div class="action-buttons">
+                    <button class="secondary-btn" id="retry-btn">
+                        <i class="fas fa-redo"></i>
+                        <span id="retry-text">重新上传</span>
+                    </button>
+                    <button class="primary-btn" id="download-all-btn">
+                        <i class="fas fa-download"></i>
+                        <span id="download-text">下载全部</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p id="copyright">© 2023 AI照片上色工具. 保留所有权利.</p>
+            <p id="disclaimer">本工具仅用于演示目的，实际效果可能因照片质量而异。</p>
+        </div>
+    </footer>
+
+    <!-- 结果项目模板 (隐藏) -->
+    <template id="result-template">
+        <div class="result-item">
+            <div class="comparison-container">
+                <div class="image-container original">
+                    <img src="" alt="原图" class="result-img original-img">
+                    <span class="image-label" data-label-original>原图</span>
+                </div>
+                <div class="image-container colorized">
+                    <img src="" alt="彩色" class="result-img colorized-img">
+                    <span class="image-label" data-label-colorized>彩色</span>
+                </div>
+            </div>
+            <div class="result-actions">
+                <button class="action-btn download-btn" data-download-text="下载">
+                    <i class="fas fa-download"></i>
+                    <span>下载</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Toast消息容器 -->
+    <div id="toast-container"></div>
+
+    <!-- 脚本 -->
+    <script src="script.js"></script>
+</body>
+</html> 
